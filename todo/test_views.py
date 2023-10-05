@@ -43,3 +43,13 @@ class TestViews(TestCase):
         updated_item = Item.objects.get(  # pylint: disable=no-member
             id=item.id)
         self.assertFalse(updated_item.done)
+
+    def test_can_edit_item(self):
+        item = Item.objects.create(  # pylint: disable=no-member
+            name='Test Todo Item', done=True)
+        response = self.client.post(
+            f'/edit/{item.id}', {'name': 'Updated Name'})
+        self.assertRedirects(response, '/')
+        updated_item = Item.objects.get(  # pylint: disable=no-member
+            id=item.id)
+        self.assertEqual(updated_item.name, 'Updated Name')
