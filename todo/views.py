@@ -3,16 +3,14 @@ from .models import Item
 from .forms import ItemForm
 
 
-# Create your views here.
 def get_todo_list(request):
-    items = Item.objects.all()  # pylint: disable=no-member
+    items = Item.objects.all()
     context = {
         'items': items
     }
     return render(request, 'todo/todo_list.html', context)
 
 
-# handling what happens when the user click submit on the form
 def add_item(request):
     if request.method == 'POST':
         form = ItemForm(request.POST)

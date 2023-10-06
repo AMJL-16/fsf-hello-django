@@ -1,7 +1,7 @@
-"""DJANGO_TODO URL Configuration
+"""django_todo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -23,5 +23,5 @@ urlpatterns = [
     path('add', views.add_item, name='add'),
     path('edit/<item_id>', views.edit_item, name='edit'),
     path('toggle/<item_id>', views.toggle_item, name='toggle'),
-    path('delete/<item_id>', views.delete_item, name='delete')
+    path('delete/<item_id>', views.delete_item, name='delete'),
 ]
